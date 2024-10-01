@@ -21,16 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Configura o Spinner para o nível de cuidado
         val spinner = findViewById<Spinner>(R.id.spinnerCuidado)
         val options = arrayOf("Baixo", "Médio", "Alto")
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
 
-        // Inicializa o adapter e a ListView
         plantaAdapter = PlantaAdapter(plantas, this)
         findViewById<ListView>(R.id.listViewPlantas).adapter = plantaAdapter
 
-        // Configura o botão para adicionar plantas
         findViewById<Button>(R.id.buttonAdicionar).setOnClickListener {
             addPlanta()
         }
